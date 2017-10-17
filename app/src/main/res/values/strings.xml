@@ -5,4 +5,6 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
+    <!-- Video encoder -->
+    <string name="activity_video_encoder">Encoder/<b>Video Encoder</b></string>
 </resources>
