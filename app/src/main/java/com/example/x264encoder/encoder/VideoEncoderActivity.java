@@ -12,7 +12,8 @@ import android.view.SurfaceView;
  *
  */
 public class VideoEncoderActivity extends Activity implements SurfaceHolder.Callback {
-    private VideoEncoderThread mVideoEncoder;
+//    private VideoEncoderThread mVideoEncoder;
+    private X264EncoderThread mVideoEncoder;
 
     private static final String FILE_PATH = Environment.getExternalStorageDirectory() + "/YUV_1080p/BasketballDrive_1920x1080_50.yuv";
 
@@ -24,7 +25,8 @@ public class VideoEncoderActivity extends Activity implements SurfaceHolder.Call
         surfaceView.getHolder().addCallback(this);
         setContentView(surfaceView);
 
-        mVideoEncoder = new VideoEncoderThread();
+//        mVideoEncoder = new VideoEncoderThread();
+        mVideoEncoder = new X264EncoderThread();
     }
 
     @Override
@@ -36,7 +38,7 @@ public class VideoEncoderActivity extends Activity implements SurfaceHolder.Call
     public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
         if (mVideoEncoder != null) {
 //            if (mVideoEncoder.init(holder.getSurface(), FILE_PATH)) {
-            String name = "Tennis_1920x1080_24";
+            String name = "BasketballDrive_1920x1080_50";
             if (mVideoEncoder.init(1920, 1080, 25, 5000*1000, name)) {
                 mVideoEncoder.start();
             } else {
